@@ -16,9 +16,9 @@
  * @param {number} target
  * @return {number[]}
  */
-const twoSum = function(nums, target) {
+const twoSum = function (nums, target) {
   // 这里我用对象来模拟 map 的能力
-  const diffs = {}
+  const diffs = {};
   // 缓存数组长度
   const len = nums.length;
 
@@ -30,6 +30,6 @@ const twoSum = function(nums, target) {
       return [diffs[target - nums[i]], i];
     }
     // 若没有对应差值，则记录当前值
-    diffs[nums[i]]=i;
+    diffs[nums[i]] = i;
   }
 };
