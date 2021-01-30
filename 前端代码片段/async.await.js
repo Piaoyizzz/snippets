@@ -3,7 +3,7 @@
  */
 
 function asyncToGenerator(generatorFunc) {
-  return function() {
+  return function () {
     const gen = generatorFunc.apply(this, arguments);
 
     return new Promise((resolve, reject) => {
@@ -12,7 +12,7 @@ function asyncToGenerator(generatorFunc) {
 
         try {
           generatorResult = gen[key](arg);
-        } catch(error) {
+        } catch (error) {
           return reject(error);
         }
 
@@ -21,22 +21,23 @@ function asyncToGenerator(generatorFunc) {
         if (done) {
           return resolve(value);
         } else {
-          return Promise.resolve(value)
-            .then(val => step('next', val), err => step('throw', err));
+          return Promise.resolve(value).then(
+            (val) => step("next", val),
+            (err) => step("throw", err)
+          );
         }
       }
 
-      step('next');
-    })
-  }
-
+      step("next");
+    });
+  };
 }
 function* helloWorldGenerator() {
-  yield 'hello';
-  yield 'world';
-  return 'ending';
+  yield "hello";
+  yield "world";
+  return "ending";
 }
 
 let testFunc = asyncToGenerator(helloWorldGenerator);
 
-testFunc().then(data => console.log(data));
+testFunc().then((data) => console.log(data));
