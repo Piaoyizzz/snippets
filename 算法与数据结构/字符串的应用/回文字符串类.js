@@ -18,7 +18,7 @@ function isPalindrome(str) {
   return true;
 }
 
-// LeeCode No.680
+// LeetCode No.680
 const validPalindrome = function (s) {
   // 缓存字符串的长度
   const len = s.length;

@@ -92,11 +92,10 @@ function quickSort_1(num, left, right) {
   }
 }
 
-
 /**
  * 一般快排
  */
-function quickSort_2 (arr) {
+function quickSort_2(arr) {
   if (arr.length <= 1) return arr;
 
   const pivotIndex = Math.floor(arr.length / 2);
