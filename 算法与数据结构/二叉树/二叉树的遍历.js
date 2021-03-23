@@ -105,12 +105,11 @@ const levelOrder = function (root) {
   return res;
 };
 
-
 // LeetCode No.226
 // 翻转二叉树
 
 // 递归实现
-var _invertTree = function(root) {
+var _invertTree = function (root) {
   if (!root) return root;
 
   _invertTree(root.left);
@@ -122,18 +121,18 @@ var _invertTree = function(root) {
 };
 
 // 迭代 模型是 BFS
-var invertTree = function(root) {
+var invertTree = function (root) {
   const queue = [root];
-  while(queue.length) {
-      const len = queue.length
-      for(let i = 0; i < len; i++) {
-          const node = queue.shift();
-          if (node) {
-              [node.left, node.right] = [node.right, node.left];
-              node.left && queue.push(node.left);
-              node.right && queue.push(node.right);
-          }
+  while (queue.length) {
+    const len = queue.length;
+    for (let i = 0; i < len; i++) {
+      const node = queue.shift();
+      if (node) {
+        [node.left, node.right] = [node.right, node.left];
+        node.left && queue.push(node.left);
+        node.right && queue.push(node.right);
       }
+    }
   }
   return root;
-}
+};
